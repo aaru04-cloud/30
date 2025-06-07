@@ -4,7 +4,6 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Ultimate Romantic Birthday Website</title>
-  <link href="https://fonts.googleapis.com/css2?family=Dancing+Script&display=swap" rel="stylesheet">
   <style>
     * { margin: 0; padding: 0; box-sizing: border-box; }
     html, body {
@@ -27,7 +26,8 @@
       padding: 3rem;
       opacity: 0;
       transition: opacity 0.8s ease-in-out;
-      flex-direction: row;
+      flex-direction: column;
+      text-align: center;
     }
 
     .slide.active {
@@ -35,58 +35,28 @@
       pointer-events: auto;
     }
 
-    .slide:first-child {
-      background: transparent;
-      position: relative;
-    }
-
-    .slide:first-child::before {
-      content: '';
-      position: absolute;
-      top: 0; left: 0;
-      width: 100%; height: 100%;
-      background: rgba(255, 255, 255, 0.2);
-      backdrop-filter: blur(4px);
-      z-index: 0;
-    }
-
-    .slide:first-child h1 {
-      position: absolute;
-      top: 20px;
-      left: 50%;
-      transform: translateX(-50%);
+    .slide h1, .slide h2 {
       z-index: 2;
+      font-size: 2.5rem;
+      margin-bottom: 1rem;
       text-shadow: 0 0 10px rgba(255, 255, 255, 0.8);
-      font-size: 3rem;
-      text-align: center;
     }
 
     .slide-content {
       flex: 1;
       z-index: 2;
-    }
-
-    .slide-content h2 {
-      font-size: 2rem;
-      margin-bottom: 1rem;
-      text-shadow: 0 0 10px rgba(255,255,255,0.8);
-    }
-
-    .slide-content p {
-      font-size: 1.2rem;
-      text-shadow: 0 0 10px rgba(255, 255, 255, 0.8);
+      font-size: 1.3rem;
+      padding: 1rem;
     }
 
     .slide-image {
-      flex-shrink: 0;
-      width: 350px;
-      height: auto;
-      max-height: 90%;
-      margin-left: 2rem;
-      position: relative;
-      z-index: 2;
-      box-shadow: 0 0 40px 20px rgba(255,255,255,0.6);
+      width: 300px;
+      max-height: 60vh;
+      object-fit: cover;
       border-radius: 1rem;
+      box-shadow: 0 0 40px 10px rgba(255,255,255,0.5);
+      z-index: 2;
+      margin-top: 1rem;
     }
 
     .glitter-container, .butterfly-container {
@@ -121,7 +91,6 @@
       animation: fly-up 20s linear forwards, flap 1s ease-in-out infinite, shimmer 6s linear infinite;
       filter: drop-shadow(0 0 8px #fff5f5);
       z-index: 9991;
-      will-change: transform;
     }
 
     @keyframes fly-up {
@@ -130,15 +99,12 @@
     }
 
     @keyframes flap {
-      0%, 100% { transform: scaleX(1) rotate(0deg); }
-      50% { transform: scaleX(-1) rotate(0deg); }
+      0%, 100% { transform: scaleX(1); }
+      50% { transform: scaleX(-1); }
     }
 
     @keyframes shimmer {
       0% { filter: hue-rotate(0deg); }
-      25% { filter: hue-rotate(60deg); }
-      50% { filter: hue-rotate(120deg); }
-      75% { filter: hue-rotate(180deg); }
       100% { filter: hue-rotate(360deg); }
     }
 
@@ -158,20 +124,16 @@
     }
 
     .handwriting {
-      font-family: 'Dancing Script', cursive;
-      font-size: 1.8rem;
+      font-family: 'Cursive', sans-serif;
+      font-size: 1.4rem;
       white-space: pre-line;
-      text-align: center;
-      padding: 2rem;
-      text-shadow: 0 0 10px rgba(255, 255, 255, 0.8);
     }
   </style>
 </head>
 <body>
 <div id="app">
   <div id="slides">
-
-    <!-- Slide 1: Birthday -->
+    <!-- Slide 1 -->
     <section class="slide active">
       <h1>Happy Birthday 🎉</h1>
       <div class="slide-content">
@@ -182,26 +144,19 @@
       <div class="butterfly-container"></div>
     </section>
 
-    <!-- Slides 2-8: Months -->
-    <section class="slide"><div class="slide-content"><h2>Month 1 — The Beginning 💖</h2><p>Our sweet start, full of hope and warm glances.</p></div><div class="glitter-container"></div><div class="butterfly-container"></div></section>
-    <section class="slide"><div class="slide-content"><h2>Month 2 — Growing Closer 💕</h2><p>Every moment together feels like sun-kissed warmth.</p></div><div class="glitter-container"></div><div class="butterfly-container"></div></section>
-    <section class="slide"><div class="slide-content"><h2>Month 3 — So Many Memories 🌸</h2><p>Dreamy days and tender moments we cherish forever.</p></div><div class="glitter-container"></div><div class="butterfly-container"></div></section>
-    <section class="slide"><div class="slide-content"><h2>Month 4 — The Fights ❤️‍🩹</h2><p>Through storms and struggles, our love stays strong.</p></div><div class="glitter-container"></div><div class="butterfly-container"></div></section>
-    <section class="slide"><div class="slide-content"><h2>Month 5 — Back to Joy 💪</h2><p>Sunshine returns, filling hearts with happiness and hope.</p></div><div class="glitter-container"></div><div class="butterfly-container"></div></section>
-    <section class="slide"><div class="slide-content"><h2>Month 6 — I Love You 💘</h2><p>Passionate whispers and floating hearts in endless dance.</p></div><div class="glitter-container"></div><div class="butterfly-container"></div></section>
-    <section class="slide"><div class="slide-content"><h2>Month 7 — Your Birthday 🎂</h2><p>Colorful confetti and golden light to celebrate you.</p></div><div class="glitter-container"></div><div class="butterfly-container"></div></section>
+    <!-- Slides 2-8: Months Together -->
+    <section class="slide"><h2>Month 1 — The Beginning 💖</h2><p>Our sweet start, full of hope and warm glances.</p><div class="glitter-container"></div><div class="butterfly-container"></div></section>
+    <section class="slide"><h2>Month 2 — Growing Closer 💕</h2><p>Every moment together feels like sun-kissed warmth.</p><div class="glitter-container"></div><div class="butterfly-container"></div></section>
+    <section class="slide"><h2>Month 3 — So Many Memories 🌸</h2><p>Dreamy days and tender moments we cherish forever.</p><div class="glitter-container"></div><div class="butterfly-container"></div></section>
+    <section class="slide"><h2>Month 4 — The Fights ❤️‍🩹</h2><p>Through storms and struggles, our love stays strong.</p><div class="glitter-container"></div><div class="butterfly-container"></div></section>
+    <section class="slide"><h2>Month 5 — Back to Joy 💪</h2><p>Sunshine returns, filling hearts with happiness and hope.</p><div class="glitter-container"></div><div class="butterfly-container"></div></section>
+    <section class="slide"><h2>Month 6 — I Love You 💘</h2><p>Passionate whispers and floating hearts in endless dance.</p><div class="glitter-container"></div><div class="butterfly-container"></div></section>
+    <section class="slide"><h2>Month 7 — Your Birthday 🎂</h2><p>Colorful confetti and golden light to celebrate you.</p><div class="glitter-container"></div><div class="butterfly-container"></div></section>
 
     <!-- Slide 9: Sweet Message -->
-    <section class="slide">
-      <div class="slide-content">
-        <h2>The Sweet Message ❤️</h2>
-        <p class="handwriting">My dearest love,<br>Every moment with you is a beautiful adventure.<br>Thank you for filling my life with magic and joy.<br>Forever yours, always. ❤️</p>
-      </div>
-      <div class="glitter-container"></div>
-      <div class="butterfly-container"></div>
-    </section>
+    <section class="slide"><h2>The Sweet Message ❤️</h2><p class="handwriting">My dearest love,<br>Every moment with you is a beautiful adventure.<br>Thank you for filling my life with magic and joy.<br>Forever yours, always. ❤️</p><div class="glitter-container"></div><div class="butterfly-container"></div></section>
   </div>
-  <button id="nextBtn" aria-label="Go to next slide">Next</button>
+  <button id="nextBtn">Next</button>
 </div>
 
 <script>
@@ -223,7 +178,7 @@
   });
 
   function createGlitter(container) {
-    for (let i = 0; i < 150; i++) {
+    for (let i = 0; i < 50; i++) {
       const star = document.createElement('div');
       star.classList.add('star-glitter');
       star.style.left = `${Math.random() * 100}%`;
@@ -238,7 +193,7 @@
   }
 
   function createButterflies(container) {
-    for (let i = 0; i < 10; i++) {
+    for (let i = 0; i < 8; i++) {
       const butterfly = document.createElement('div');
       butterfly.classList.add('butterfly-fly');
       butterfly.style.left = `${Math.random() * 100}vw`;
@@ -252,8 +207,14 @@
   function triggerEffects(slide) {
     const glitterContainer = slide.querySelector('.glitter-container');
     const butterflyContainer = slide.querySelector('.butterfly-container');
-    if (glitterContainer) createGlitter(glitterContainer);
-    if (butterflyContainer) createButterflies(butterflyContainer);
+    if (glitterContainer) {
+      glitterContainer.innerHTML = '';
+      createGlitter(glitterContainer);
+    }
+    if (butterflyContainer) {
+      butterflyContainer.innerHTML = '';
+      createButterflies(butterflyContainer);
+    }
   }
 
   window.addEventListener('load', () => {

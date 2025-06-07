@@ -37,26 +37,31 @@
 
     .slide h1, .slide h2 {
       z-index: 2;
+      text-shadow: 0 0 10px rgba(255, 255, 255, 0.8);
       font-size: 2.5rem;
       margin-bottom: 1rem;
-      text-shadow: 0 0 10px rgba(255, 255, 255, 0.8);
     }
 
     .slide-content {
-      flex: 1;
       z-index: 2;
-      font-size: 1.3rem;
-      padding: 1rem;
+    }
+
+    .slide-content p {
+      text-shadow: 0 0 10px rgba(255, 255, 255, 0.8);
+      font-size: 1.2rem;
+      max-width: 800px;
+      margin: 0 auto;
     }
 
     .slide-image {
-      width: 300px;
-      max-height: 60vh;
-      object-fit: cover;
-      border-radius: 1rem;
-      box-shadow: 0 0 40px 10px rgba(255,255,255,0.5);
+      width: 350px;
+      height: auto;
+      max-height: 90%;
+      margin-top: 2rem;
+      position: relative;
       z-index: 2;
-      margin-top: 1rem;
+      box-shadow: 0 0 40px 20px rgba(255,255,255,0.6);
+      border-radius: 1rem;
     }
 
     .glitter-container, .butterfly-container {
@@ -91,6 +96,7 @@
       animation: fly-up 20s linear forwards, flap 1s ease-in-out infinite, shimmer 6s linear infinite;
       filter: drop-shadow(0 0 8px #fff5f5);
       z-index: 9991;
+      will-change: transform;
     }
 
     @keyframes fly-up {
@@ -99,12 +105,15 @@
     }
 
     @keyframes flap {
-      0%, 100% { transform: scaleX(1); }
-      50% { transform: scaleX(-1); }
+      0%, 100% { transform: scaleX(1) rotate(0deg); }
+      50% { transform: scaleX(-1) rotate(0deg); }
     }
 
     @keyframes shimmer {
       0% { filter: hue-rotate(0deg); }
+      25% { filter: hue-rotate(60deg); }
+      50% { filter: hue-rotate(120deg); }
+      75% { filter: hue-rotate(180deg); }
       100% { filter: hue-rotate(360deg); }
     }
 
@@ -122,18 +131,11 @@
       cursor: pointer;
       z-index: 10000;
     }
-
-    .handwriting {
-      font-family: 'Cursive', sans-serif;
-      font-size: 1.4rem;
-      white-space: pre-line;
-    }
   </style>
 </head>
 <body>
 <div id="app">
   <div id="slides">
-    <!-- Slide 1 -->
     <section class="slide active">
       <h1>Happy Birthday 🎉</h1>
       <div class="slide-content">
@@ -144,21 +146,80 @@
       <div class="butterfly-container"></div>
     </section>
 
-    <!-- Slides 2-8: Months Together -->
-    <section class="slide"><h2>Month 1 — The Beginning 💖</h2><p>Our sweet start, full of hope and warm glances.</p><div class="glitter-container"></div><div class="butterfly-container"></div></section>
-    <section class="slide"><h2>Month 2 — Growing Closer 💕</h2><p>Every moment together feels like sun-kissed warmth.</p><div class="glitter-container"></div><div class="butterfly-container"></div></section>
-    <section class="slide"><h2>Month 3 — So Many Memories 🌸</h2><p>Dreamy days and tender moments we cherish forever.</p><div class="glitter-container"></div><div class="butterfly-container"></div></section>
-    <section class="slide"><h2>Month 4 — The Fights ❤️‍🩹</h2><p>Through storms and struggles, our love stays strong.</p><div class="glitter-container"></div><div class="butterfly-container"></div></section>
-    <section class="slide"><h2>Month 5 — Back to Joy 💪</h2><p>Sunshine returns, filling hearts with happiness and hope.</p><div class="glitter-container"></div><div class="butterfly-container"></div></section>
-    <section class="slide"><h2>Month 6 — I Love You 💘</h2><p>Passionate whispers and floating hearts in endless dance.</p><div class="glitter-container"></div><div class="butterfly-container"></div></section>
-    <section class="slide"><h2>Month 7 — Your Birthday 🎂</h2><p>Colorful confetti and golden light to celebrate you.</p><div class="glitter-container"></div><div class="butterfly-container"></div></section>
+    <section class="slide">
+      <h2>Month 1 — The Beginning 💖</h2>
+      <div class="slide-content">
+        <p>Our sweet start, full of hope and warm glances.</p>
+      </div>
+      <div class="glitter-container"></div>
+      <div class="butterfly-container"></div>
+    </section>
 
-    <!-- Slide 9: Sweet Message -->
-    <section class="slide"><h2>The Sweet Message ❤️</h2><p class="handwriting">My dearest love,<br>Every moment with you is a beautiful adventure.<br>Thank you for filling my life with magic and joy.<br>Forever yours, always. ❤️</p><div class="glitter-container"></div><div class="butterfly-container"></div></section>
+    <section class="slide">
+      <h2>Month 2 — Growing Closer 💕</h2>
+      <div class="slide-content">
+        <p>Every moment together feels like sun-kissed warmth.</p>
+      </div>
+      <div class="glitter-container"></div>
+      <div class="butterfly-container"></div>
+    </section>
+
+    <section class="slide">
+      <h2>Month 3 — So Many Memories 🌸</h2>
+      <div class="slide-content">
+        <p>Dreamy days and tender moments we cherish forever.</p>
+      </div>
+      <div class="glitter-container"></div>
+      <div class="butterfly-container"></div>
+    </section>
+
+    <section class="slide">
+      <h2>Month 4 — The Fights ❤️‍🩹</h2>
+      <div class="slide-content">
+        <p>Through storms and struggles, our love stays strong.</p>
+      </div>
+      <div class="glitter-container"></div>
+      <div class="butterfly-container"></div>
+    </section>
+
+    <section class="slide">
+      <h2>Month 5 — Back to Joy 💪</h2>
+      <div class="slide-content">
+        <p>Sunshine returns, filling hearts with happiness and hope.</p>
+      </div>
+      <div class="glitter-container"></div>
+      <div class="butterfly-container"></div>
+    </section>
+
+    <section class="slide">
+      <h2>Month 6 — I Love You 💘</h2>
+      <div class="slide-content">
+        <p>Passionate whispers and floating hearts in endless dance.</p>
+      </div>
+      <div class="glitter-container"></div>
+      <div class="butterfly-container"></div>
+    </section>
+
+    <section class="slide">
+      <h2>Month 7 — Your Birthday 🎂</h2>
+      <div class="slide-content">
+        <p>Colorful confetti and golden light to celebrate you.</p>
+      </div>
+      <div class="glitter-container"></div>
+      <div class="butterfly-container"></div>
+    </section>
+
+    <section class="slide">
+      <h2>The Sweet Message ❤️</h2>
+      <div class="slide-content">
+        <p>My dearest love,<br>Every moment with you is a beautiful adventure.<br>Thank you for filling my life with magic and joy.<br>Forever yours, always. ❤️</p>
+      </div>
+      <div class="glitter-container"></div>
+      <div class="butterfly-container"></div>
+    </section>
   </div>
   <button id="nextBtn">Next</button>
 </div>
-
 <script>
   const slides = document.querySelectorAll('.slide');
   let currentSlide = 0;
@@ -178,7 +239,7 @@
   });
 
   function createGlitter(container) {
-    for (let i = 0; i < 50; i++) {
+    for (let i = 0; i < 100; i++) {
       const star = document.createElement('div');
       star.classList.add('star-glitter');
       star.style.left = `${Math.random() * 100}%`;
@@ -186,40 +247,6 @@
       star.style.animationDuration = `${4 + Math.random() * 3}s`;
       star.style.filter = Math.random() < 0.5
         ? 'drop-shadow(0 0 8px #ffffff) brightness(2) contrast(2)'
-        : 'drop-shadow(0 0 8px #ffff00) brightness(2) contrast(2)';
-      container.appendChild(star);
-      setTimeout(() => star.remove(), 7000);
-    }
-  }
-
-  function createButterflies(container) {
-    for (let i = 0; i < 8; i++) {
-      const butterfly = document.createElement('div');
-      butterfly.classList.add('butterfly-fly');
-      butterfly.style.left = `${Math.random() * 100}vw`;
-      butterfly.style.top = `${80 + Math.random() * 20}vh`;
-      butterfly.style.animationDuration = `${20 + Math.random() * 10}s`;
-      container.appendChild(butterfly);
-      setTimeout(() => butterfly.remove(), 30000);
-    }
-  }
-
-  function triggerEffects(slide) {
-    const glitterContainer = slide.querySelector('.glitter-container');
-    const butterflyContainer = slide.querySelector('.butterfly-container');
-    if (glitterContainer) {
-      glitterContainer.innerHTML = '';
-      createGlitter(glitterContainer);
-    }
-    if (butterflyContainer) {
-      butterflyContainer.innerHTML = '';
-      createButterflies(butterflyContainer);
-    }
-  }
-
-  window.addEventListener('load', () => {
-    triggerEffects(slides[currentSlide]);
-  });
-</script>
-</body>
-</html>
+        : 'drop-shadow(0 0 8px #ffff00) brightness
+::contentReference[oaicite:7]{index=7}
+ 
